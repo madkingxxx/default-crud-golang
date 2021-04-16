@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "/proto";
+
+service crud {
+    rpc Create(UserInfo) returns (UserInfo) {}
+    rpc Get(PrivateUserInfo) returns (UserInfo) {}
+    rpc Update(UserInfo) returns (UserInfo) {}
+    rpc Delete(PrivateUserInfo) returns (UserInfo) {}
+}
+
+
+message PrivateUserInfo{
+    string username = 1;
+    string password = 2;
+}
+
+
+message UserInfo{
+    PrivateUserInfo info = 1;
+    string firstname = 2;
+    string lastname = 3;
+}
+
